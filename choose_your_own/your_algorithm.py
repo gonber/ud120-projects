@@ -28,15 +28,17 @@ plt.show()
 ################################################################################
 
 
-### your code here!  name your classifier object clf if you want the 
+### your code here!  name your classifier object clf if you want the
 ### visualization code (prettyPicture) to show you the decision boundary
 
+from sklearn import neighbors, ensemble
 
+clf = neighbors.KNeighborsClassifier(n_neighbors=4)
+#clf = ensemble.AdaBoostClassifier(n_estimators=25)
+#clf = ensemble.RandomForestClassifier(n_estimators=10, min_samples_split=2)
 
-
-
-
-
+clf.fit(features_train, labels_train)
+print clf.score(features_test, labels_test)
 
 try:
     prettyPicture(clf, features_test, labels_test)
